@@ -32,7 +32,7 @@ spec:
             - name: SPRING_APPLICATION_NAME
               value: admin-server
             - name: SPRING_APPLICATION_INSTANCE_ID
-              value: admin-server:\${HOSTNAME}
+              value: admin-server:${HOSTNAME}
             - name: CONFIG_SERVER_URL
               value: http://config-server:{{ .Values.service.configServer.port }}
             - name: EUREKA_INSTANCE_HOSTNAME
