@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vets-service
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: vets-service
+  template:
+    metadata:
+      labels:
+        app: vets-service
+    spec:
+      initContainers:
+        - name: wait-for-discovery-server
+          image: busybox
+          command:
+            - "sh"
+            - "-c"
+            - "until nc -z -v -w30 discovery-server {{ .Values.service.discoveryServer.port }}; do echo waiting for discovery-server; sleep 2; done;"
+      containers:
+        - name: vets-service
+          image: "{{ .Values.image.vetsService.repository }}:{{ .Values.image.vetsService.tag }}"
+          ports:
+            - containerPort: {{ .Values.service.vetsService.port }}
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: docker
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: http://discovery-server:{{ .Values.service.discoveryServer.port }}/eureka/
+            - name: SPRING_ZIPKIN_TRACING_ENDPOINT
+              value: http://tracing-server:9411/api/v2/spans
+            - name: SPRING_APPLICATION_NAME
+              value: vets-service
+            - name: SPRING_APPLICATION_INSTANCE_ID
+              value: ${spring.application.name}:${random.uuid}
+            - name: SPRING_CACHE_TTL
+              value: "60"
+            - name: SPRING_CACHE_HEAP_SIZE
+              value: "100"
+            - name: CONFIG_SERVER_URL
+              value: http://config-server:{{ .Values.service.configServer.port }}
+            - name: EUREKA_INSTANCE_HOSTNAME
+              value: vets-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vets-service
+spec:
+  selector:
+    app: vets-service
+  ports:
+    - port: {{ .Values.service.vetsService.port }}
+      targetPort: {{ .Values.service.vetsService.port }}
