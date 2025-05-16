@@ -46,8 +46,3 @@ service:
     port: 8888
     nodePort: 31088
 
-ingress:
-  enabled: true
-  name: staging-api-gateway.local
-  path: /
-  servicePort: 8080
