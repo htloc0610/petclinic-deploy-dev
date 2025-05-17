@@ -27,8 +27,6 @@ image:
     tag: v1.2.3
 
 service:
-  apiGateway:
-    port: 8080
   discoveryServer:
     port: 8761
   customersService:
@@ -45,4 +43,7 @@ service:
   configServer:
     port: 8888
     nodePort: 31089
+  apiGateway:
+    port: 8080
+    nodePort: 31081
 

@@ -26,8 +26,6 @@ image:
     repository: anwirisme/spring-petclinic-config-server
     tag: main
 service:
-  apiGateway:
-    port: 8080
   discoveryServer:
     port: 8761
   customersService:
@@ -44,3 +42,6 @@ service:
   configServer:
     port: 8888
     nodePort: 30088
+  apiGateway:
+    port: 8080
+    nodePort: 30080
