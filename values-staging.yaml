@@ -45,5 +45,5 @@ service:
     nodePort: 31089
   apiGateway:
     port: 8080
-    nodePort: 31081
+    nodePort: 30081
 
