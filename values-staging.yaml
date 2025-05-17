@@ -41,8 +41,8 @@ service:
     port: 8084
   adminServer:
     port: 9090
-    nodePort: 31090
+    nodePort: 31091
   configServer:
     port: 8888
-    nodePort: 31088
+    nodePort: 31089
 
