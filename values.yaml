@@ -1,5 +1,4 @@
 replicaCount: 1
-
 image:
   apiGateway:
     repository: anwirisme/spring-petclinic-api-gateway
@@ -26,8 +25,6 @@ image:
     repository: anwirisme/spring-petclinic-config-server
     tag: main
 service:
-  apiGateway:
-    port: 8080
   discoveryServer:
     port: 8761
   customersService:
@@ -40,7 +37,10 @@ service:
     port: 8084
   adminServer:
     port: 9090
-    nodePort: 30090
+    nodePort: 30092
   configServer:
     port: 8888
-    nodePort: 30088
+    nodePort: 30087
+  apiGateway:
+    port: 8080
+    nodePort: 30082
