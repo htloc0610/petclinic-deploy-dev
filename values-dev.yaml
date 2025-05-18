@@ -14,7 +14,7 @@ image:
     tag: main
   visitsService:
     repository: anwirisme/spring-petclinic-visits-service
-    tag: main
+    tag: 159a008
   genaiService:
     repository: anwirisme/spring-petclinic-genai-service
     tag: main
