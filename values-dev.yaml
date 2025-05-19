@@ -8,7 +8,7 @@ image:
     tag: main
   customersService:
     repository: anwirisme/spring-petclinic-customers-service
-    tag: main
+    tag: v2.1.0
   vetsService:
     repository: anwirisme/spring-petclinic-vets-service
     tag: main
