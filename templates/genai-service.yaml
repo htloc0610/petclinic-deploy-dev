@@ -45,6 +45,8 @@ spec:
               value: test
             - name: EUREKA_INSTANCE_HOSTNAME
               value: genai-service
+            - name: ZIPKIN_URL
+              value: {{ .Values.zipkin.url }}
 ---
 apiVersion: v1
 kind: Service
