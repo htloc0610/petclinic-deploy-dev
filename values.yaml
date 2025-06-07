@@ -44,4 +44,6 @@ service:
   apiGateway:
     port: 8080
     nodePort: 30082
-
+  zipkin:
+    port: 9411
+    nodePort: 30085
