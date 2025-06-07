@@ -44,5 +44,3 @@ service:
   apiGateway:
     port: 8080
     nodePort: 30081
-zipkin:
-  url: http://zipkin.monitoring.svc.cluster.local:9411/api/v2/spans
