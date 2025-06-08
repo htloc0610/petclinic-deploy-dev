@@ -52,7 +52,7 @@ spec:
         - name: grafana
           image: grafana/grafana:10.2.3
           ports:
-            - containerPort: {{ .Values.grafana.port }}
+            - containerPort: {{ .Values.service.grafana.port }}
           volumeMounts:
             - name: datasources
               mountPath: /etc/grafana/provisioning/datasources
@@ -79,6 +79,6 @@ spec:
   selector:
     app: grafana
   ports:
-    - port: {{ .Values.grafana.port }}
-      targetPort: {{ .Values.grafana.port }}
-      nodePort: {{ .Values.grafana.nodePort }}
+    - port: {{ .Values.service.grafana.port }}
+      targetPort: {{ .Values.service.grafana.port }}
+      nodePort: {{ .Values.service.grafana.nodePort }}
