@@ -58,4 +58,3 @@ data:
               - 'visits-service:8082'
               - 'genai-service:8084'
               - 'api-gateway:8080'
-              - 'admin-server:9090'
