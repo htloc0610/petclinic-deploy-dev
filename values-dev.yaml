@@ -47,3 +47,6 @@ service:
   zipkin:
     port: 9411
     nodePort: 30084
+  prometheus:
+    port: 9090
+    nodePort: 30093
