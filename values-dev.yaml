@@ -50,3 +50,6 @@ service:
   prometheus:
     port: 9090
     nodePort: 30093
+  grafana:
+    port: 3000
+    nodePort: 30096
