@@ -1,12 +1,15 @@
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: promtail
+  namespace: {{ .Values.namespace }}
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: promtail-config
+  namespace: {{ .Values.namespace }}
 data:
   config.yaml: |
     server:
@@ -47,6 +50,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: promtail
+  namespace: {{ .Values.namespace }}
   labels:
     app: promtail
 spec:
@@ -82,3 +86,25 @@ spec:
         - name: varlibdockercontainers
           hostPath:
             path: /var/lib/docker/containers
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: promtail
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "nodes", "services", "endpoints"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: promtail
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: promtail
+subjects:
+  - kind: ServiceAccount
+    name: promtail
+    namespace: {{ .Values.namespace }}

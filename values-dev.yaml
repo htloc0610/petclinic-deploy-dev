@@ -61,3 +61,10 @@ promtail:
       job_name: kubernetes-pods-dev
       relabel_configs:
           regex: dev
+namespace: dev
+promtail:
+  config:
+    scrape_configs:
+      job_name: "kubernetes-pods"
+      relabel_configs:
+        regex: "dev"

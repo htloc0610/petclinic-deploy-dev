@@ -61,3 +61,10 @@ promtail:
       job_name: kubernetes-pods-staging
       relabel_configs:
           regex: staging
+namespace: staging
+promtail:
+  config:
+    scrape_configs:
+      job_name: "kubernetes-pods"
+      relabel_configs:
+        regex: "staging"
