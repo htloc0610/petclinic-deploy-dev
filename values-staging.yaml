@@ -54,7 +54,7 @@ service:
     port: 3000
     nodePort: 30100
 loki:
-  namespace: loki-staging
+  namespace: staging
 promtail:
   config:
     scrape_configs:

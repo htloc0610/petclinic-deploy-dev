@@ -54,7 +54,7 @@ service:
     port: 3000
     nodePort: 30096
 loki:
-  namespace: loki-dev
+  namespace: dev
 promtail:
   config:
     scrape_configs:
