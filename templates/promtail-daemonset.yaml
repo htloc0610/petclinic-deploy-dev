@@ -4,6 +4,7 @@ kind: ServiceAccount
 metadata:
   name: promtail
   namespace: {{ .Values.namespace }}
+automountServiceAccountToken: true
 ---
 apiVersion: v1
 kind: ConfigMap
