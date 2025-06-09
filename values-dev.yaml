@@ -63,6 +63,8 @@ promtail:
           regex: dev
 namespace: dev
 promtail:
+  clusterRoleName: "promtail-dev"
+  clusterRoleBindingName: "promtail-binding-dev"
   config:
     scrape_configs:
       job_name: "kubernetes-pods"

@@ -63,6 +63,8 @@ promtail:
           regex: staging
 namespace: staging
 promtail:
+  clusterRoleName: "promtail-staging"
+  clusterRoleBindingName: "promtail-binding-staging"
   config:
     scrape_configs:
       job_name: "kubernetes-pods"
