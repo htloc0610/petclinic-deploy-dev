@@ -2,28 +2,28 @@ replicaCount: 1
 image:
   apiGateway:
     repository: anwirisme/spring-petclinic-api-gateway
-    tag: main
+    tag: 24e6a46
   discoveryServer:
     repository: anwirisme/spring-petclinic-discovery-server
     tag: main
   customersService:
     repository: anwirisme/spring-petclinic-customers-service
-    tag: v2.1.0
+    tag: 24e6a46
   vetsService:
     repository: anwirisme/spring-petclinic-vets-service
-    tag: main
+    tag: 24e6a46
   visitsService:
     repository: anwirisme/spring-petclinic-visits-service
-    tag: main
+    tag: 24e6a46
   genaiService:
     repository: anwirisme/spring-petclinic-genai-service
     tag: main
   adminServer:
     repository: anwirisme/spring-petclinic-admin-server
-    tag: main
+    tag: 24e6a46
   configServer:
     repository: anwirisme/spring-petclinic-config-server
-    tag: main
+    tag: 24e6a46
 service:
   discoveryServer:
     port: 8761
