@@ -55,18 +55,3 @@ service:
     nodePort: 30100
 loki:
   namespace: staging
-promtail:
-  config:
-    scrape_configs:
-      job_name: kubernetes-pods-staging
-      relabel_configs:
-          regex: staging
-namespace: staging
-promtail:
-  clusterRoleName: "promtail-staging"
-  clusterRoleBindingName: "promtail-binding-staging"
-  config:
-    scrape_configs:
-      job_name: "kubernetes-pods"
-      relabel_configs:
-        regex: "staging"
