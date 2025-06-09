@@ -20,12 +20,12 @@ data:
       - url: http://loki:3100/loki/api/v1/push
 
     scrape_configs:
-      - job_name: kubernetes-pods-staging
+      - job_name: {{ .Values.promtail.config.scrape_configs.job_name | quote }}
         kubernetes_sd_configs:
           - role: pod
         relabel_configs:
           - source_labels: [__meta_kubernetes_namespace]
-            regex: staging
+            regex: {{ .Values.promtail.config.scrape_configs.relabel_configs.regex | quote }}
             action: keep
 
           - source_labels: [__meta_kubernetes_pod_name]
