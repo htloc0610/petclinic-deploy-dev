@@ -18,8 +18,6 @@ spec:
           ports:
             - containerPort: {{ .Values.service.discoveryServer.port }}
           env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: docker
             - name: EUREKA_INSTANCE_HOSTNAME
               value: discovery-server
             - name: EUREKA_CLIENT_REGISTERWITHEUREKA
