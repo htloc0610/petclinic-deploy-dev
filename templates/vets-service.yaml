@@ -25,6 +25,8 @@ spec:
           ports:
             - containerPort: {{ .Values.service.vetsService.port }}
           env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: docker
             - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
               value: http://discovery-server:{{ .Values.service.discoveryServer.port }}/eureka/
             - name: SPRING_ZIPKIN_TRACING_ENDPOINT

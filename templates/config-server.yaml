@@ -18,6 +18,8 @@ spec:
           ports:
             - containerPort: {{ .Values.service.configServer.port }}
           env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: docker
             - name: SPRING_APPLICATION_NAME
               value: config-server
             - name: SPRING_APPLICATION_INSTANCE_ID
