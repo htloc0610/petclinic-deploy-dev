@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: visits-service
 spec:
+  revisionHistoryLimit: 2
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:

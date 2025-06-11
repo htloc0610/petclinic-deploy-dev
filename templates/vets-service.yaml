@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: vets-service
 spec:
+  revisionHistoryLimit: 2
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:

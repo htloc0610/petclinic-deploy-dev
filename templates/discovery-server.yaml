@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: discovery-server
 spec:
+  revisionHistoryLimit: 2
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
